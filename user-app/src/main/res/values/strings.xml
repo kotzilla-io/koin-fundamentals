@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Koin User Application</string>
+    <string name="login">Login</string>
+    <string name="Password">Password</string>
+    <string name="authenticate">Authenticate</string>
+    <string name="authenticating">Authenticating …</string>
+    <string name="status">Authentication Status</string>
+</resources>
