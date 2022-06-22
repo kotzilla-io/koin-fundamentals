@@ -5,14 +5,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
-import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.userapp.R
 
 class LoginActivity : AppCompatActivity() {
 
-//    private val loginPresenter: LoginPresenter by inject()
-    private val loginViewModel: LoginViewModel by viewModel()
+    //TODO inject presenter / ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +26,9 @@ class LoginActivity : AppCompatActivity() {
 
             val login = loginField.text.toString()
             val password = passwordField.text.toString()
-            val connectionString = loginViewModel.authenticate(login, password)
+
+            //TODO Call .authenticate(login, password)
+            val connectionString = ""
 
             statusField.text = connectionString
         }
