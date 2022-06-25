@@ -1,3 +1,28 @@
 package org.koin.userapp.di
 
-//TODO Koin Module
+import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.dsl.bind
+import org.koin.dsl.module
+import org.koin.userapp.components.UserAuthenticator
+import org.koin.userapp.components.UserDatabase
+import org.koin.userapp.components.UserInMemoryDatabase
+import org.koin.userapp.view.LoginPresenter
+import org.koin.userapp.view.LoginViewModel
+
+
+// Koin 3.2 version module
+//val userAppModule = module {
+//    singleOf(::UserInMemoryDatabase) { bind<UserDatabase>() }
+//    singleOf(::UserAuthenticator)
+//
+//    factoryOf(::LoginPresenter)
+//    viewModelOf(::LoginViewModel)
+//}
+
+val userAppModule = module {
+    single { UserInMemoryDatabase() } bind UserDatabase::class
+    single { UserAuthenticator(get()) }
+
+    factory { LoginPresenter(get()) }
+    viewModel { LoginViewModel(get()) }
+}
